@@ -1,0 +1,5 @@
+parameters:
+  helm_chart:
+    multi_instance: true
+    include_crds: true
+    helmValues: {}

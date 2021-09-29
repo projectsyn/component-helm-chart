@@ -1,0 +1,32 @@
+= Parameters
+
+Use an alias for the component.
+
+== `namespace`
+
+[horizontal]
+type:: string
+
+The namespace in which to deploy this component.
+
+== `include_crds`
+
+[horizontal]
+type:: bool
+default:: true
+
+Include crds in deployment.
+
+== `chart`
+
+[horizontal]
+type:: map
+
+The configuration of the helm chart: repo, name, version
+
+== `helmValues`
+
+[horizontal]
+type:: map
+
+Configuration values for the helm charts.

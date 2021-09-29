@@ -1,0 +1,24 @@
+parameters:
+  kapitan:
+    dependencies:
+      - type: helm
+        source: ${${_instance}:chart:repo}
+        chart_name: ${${_instance}:chart:name}
+        version: ${${_instance}:chart:version}
+        output_path: ${_instance}_${${_instance}:chart:name}
+    compile:
+      - input_paths:
+          - helm-chart/component/app.jsonnet
+        input_type: jsonnet
+        output_path: apps/
+      - input_paths:
+          - helm-chart/component/main.jsonnet
+        input_type: jsonnet
+        output_path: ${_instance}
+      - input_type: helm
+        input_paths:
+          - ${_instance}_${${_instance}:chart:name}
+        helm_values: ${${_instance}:helmValues}
+        helm_params:
+          namespace: ${${_instance}:namespace}
+        output_path: ${_instance}/01_helmchart
