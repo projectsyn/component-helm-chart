@@ -1,5 +1,11 @@
 # Commodore Component: helm-chart
 
+---
+
+**NOTE: This component needs a commodore version with helm3 support.**
+
+---
+
 This is a [Commodore][commodore] Component for helm charts.
 
 This repository is part of Project Syn.

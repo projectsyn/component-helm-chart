@@ -20,5 +20,8 @@ parameters:
           - ${_instance}_${${_instance}:chart:name}
         helm_values: ${${_instance}:helmValues}
         helm_params:
+          name: ${_instance}
           namespace: ${${_instance}:namespace}
+          dependency_update: true
+          include_crds: ${${_instance}:include_crds}
         output_path: ${_instance}/01_helmchart
