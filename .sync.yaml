@@ -1,0 +1,7 @@
+:global:
+  componentName: helm-chart
+  githubUrl: https://github.com/projectsyn/component-helm-chart
+
+docs/antora.yml:
+  name: helm-chart
+  title: Helm Chart
