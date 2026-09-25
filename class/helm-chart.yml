@@ -2,23 +2,24 @@ parameters:
   kapitan:
     dependencies:
       - type: helm
-        source: ${${_instance}:chart:repo}
-        chart_name: ${${_instance}:chart:name}
-        version: ${${_instance}:chart:version}
-        output_path: ${_instance}_${${_instance}:chart:name}
+        source: ${helm_chart:charts:chart1:source}
+        chart_name: ${helm_chart:charts:chart1:name}
+        version: ${helm_chart:charts:chart1:version}
+        output_path: ${_base_directory}/helmcharts/${helm_chart:charts:chart1:name}-${helm_chart:charts:chart1:version}
     compile:
       - input_paths:
-          - helm-chart/component/app.jsonnet
-        input_type: jsonnet
-        output_path: apps/
-      - input_paths:
-          - helm-chart/component/main.jsonnet
-        input_type: jsonnet
-        output_path: ${_instance}
-      - input_type: helm
-        input_paths:
-          - ${_instance}_${${_instance}:chart:name}
-        helm_values: ${${_instance}:helmValues}
+          - ${_base_directory}/helmcharts/${helm_chart:charts:chart1:name}-${helm_chart:charts:chart1:version}
+        input_type: helm
+        output_path: ${_instance}/${helm_chart:charts:chart1:name}
+        helm_values: ${helm_chart:helm_values}
         helm_params:
-          namespace: ${${_instance}:namespace}
-        output_path: ${_instance}/01_helmchart
+          name: ${helm_chart:charts:chart1:name}
+          namespace: ${helm_chart:namespace}
+      - input_paths:
+          - ${_base_directory}/component/app.jsonnet
+        input_type: jsonnet
+        output_path: .
+      - input_paths:
+          - ${_base_directory}/component/main.jsonnet
+        input_type: jsonnet
+        output_path: ${_instance}/${helm_chart:charts:chart1:name}
