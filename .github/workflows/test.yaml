@@ -1,5 +1,6 @@
 name: Pull Request
 on:
+  push:
   pull_request:
   workflow_dispatch:
 
@@ -48,6 +49,7 @@ jobs:
       matrix:
         instance:
           - defaults
+          - with_values
     defaults:
       run:
         working-directory: ${{ env.COMPONENT_NAME }}

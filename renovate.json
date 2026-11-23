@@ -37,6 +37,24 @@
         "automerge",
         "bump:patch"
       ]
+    },
+    {
+      "automerge": true,
+      "platformAutomerge": false,
+      "matchDatasources": [
+        "docker"
+      ],
+      "labels": [
+        "dependency",
+        "automerge",
+        "bump:minor"
+      ]
+    },
+    {
+      "matchDepNames": [
+        "ghcr.io/appuio/test-helm-chart"
+      ],
+      "versioning": "loose"
     }
   ]
 }
