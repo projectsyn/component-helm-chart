@@ -1,5 +1,5 @@
 parameters:
   helm_chart:
-    multi_instance: true
-    include_crds: true
-    helmValues: {}
+    =_metadata:
+      multi_tenant: true
+    namespace: syn-helm-chart

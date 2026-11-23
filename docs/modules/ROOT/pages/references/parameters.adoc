@@ -1,32 +1,19 @@
 = Parameters
 
-Use an alias for the component.
+The parent key for all of the following parameters is `helm_chart`.
 
 == `namespace`
 
 [horizontal]
 type:: string
+default:: `syn-helm-chart`
 
 The namespace in which to deploy this component.
 
-== `include_crds`
 
-[horizontal]
-type:: bool
-default:: true
+== Example
 
-Include crds in deployment.
-
-== `chart`
-
-[horizontal]
-type:: map
-
-The configuration of the helm chart: repo, name, version
-
-== `helmValues`
-
-[horizontal]
-type:: map
-
-Configuration values for the helm charts.
+[source,yaml]
+----
+namespace: example-namespace
+----
