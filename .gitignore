@@ -1,7 +1,7 @@
 # Commodore
 /.cache
 /dependencies
-helmcharts
+/helmcharts
 /manifests
 /vendor
 /jsonnetfile.lock.json
@@ -13,4 +13,3 @@ helmcharts
 /_public
 
 # Additional entries
-/.idea/

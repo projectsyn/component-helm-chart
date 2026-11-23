@@ -3,13 +3,12 @@ local inv = kap.inventory();
 local params = inv.parameters.helm_chart;
 local argocd = import 'lib/argocd.libjsonnet';
 
-local instance = inv.parameters._instance;
-local app = argocd.App(instance, params.namespace, secrets=true, base='helm-chart');
+local app = argocd.App('helm-chart', params.namespace);
 
 local appPath =
   local project = std.get(std.get(app, 'spec', {}), 'project', 'syn');
   if project == 'syn' then 'apps' else 'apps-%s' % project;
 
 {
-  ['%s/%s' % [ appPath, instance ]]: app,
+  ['%s/helm-chart' % appPath]: app,
 }
