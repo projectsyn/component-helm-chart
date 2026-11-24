@@ -1,3 +1,7 @@
+# ⚠️ This component is outdated and archived as of 2026-11-24
+
+See [vshn/component-helm-chart](https://github.com/vshn/component-helm-chart) for a component that addresses a similar need.
+
 # Commodore Component: helm-chart
 
 This is a [Commodore][commodore] Component for helm charts.
